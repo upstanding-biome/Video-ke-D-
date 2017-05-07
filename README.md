@@ -1,45 +1,73 @@
-# electron-quick-start
+# Video-ke
 
-**Clone and run for a quick way to see Electron in action.**
+## Overview ##
 
-This is a minimal Electron application based on the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start) within the Electron documentation.
+> Video-oke is a Karoake application that obtains videos from Youtube.
 
-**Use this app along with the [Electron API Demos](http://electron.atom.io/#get-started) app for API code examples to help you get started.**
+> Version 3 has integrated Electron for use on the desktop.
 
-A basic Electron application needs just these files:
+> Video-oke was inspiried by picking up the codebase for TRNTBL3000, an app that allowed crossfading across two playlists. Video-oke incorporates this need but adds video functionality and the ability to search the Youtube API to add the songs you want to sing or listen to and use a crossfader in between songs.
 
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
+## Dependencies ##
+> Youtube API v3
 
-You can learn more about each of these components within the [Quick Start Guide](http://electron.atom.io/docs/tutorial/quick-start).
+> Assert
 
-## To Use
+> JQuery
 
-To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+> Bootstrap
 
-```bash
-# Clone this repository
-git clone https://github.com/electron/electron-quick-start
-# Go into the repository
-cd electron-quick-start
-# Install dependencies
-npm install
-# Run the app
-npm start
-```
+> Express.js
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
+> Node.js
 
-## Resources for Learning Electron
+## Getting Started
 
-- [electron.atom.io/docs](http://electron.atom.io/docs) - all of Electron's documentation
-- [electron.atom.io/community/#boilerplates](http://electron.atom.io/community/#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
+### Installation
+Install dependencies `npm install && npm start`
+Other depencendencies are called from CDN
 
-## License
+## Roadmap ##
+> Possible future updates may include the ability to:
+  -search the libraries from soundcloud's API and build your own playlists
+  -have multiple DJ-ing sound clips and special FX
+  display lyrics for karaoke usage
 
-[CC0 1.0 (Public Domain)](LICENSE.md)
+## Notes on the Procfile ##
+> This tells Heroku the location of the server. Other environmental variables can be set here.
+
+## Credits ##
+
+Version 2 Development Team:
+
+Product Owner: [Cristian Avalos](https://github.com/cavalos0086/)
+
+Scrum Master: [Kent Ou](https://github.com/kent10ou/)
+
+[Kim Merino](https://github.com/dafabulousteach/)
+
+[Christopher Salam](https://github.com/ChristopherSalam/)
+
+Version 1 Development Team:
+
+[Boundless Kitten](https://github.com/boundless-kitten)
+
+Features and styling heavily inspiried by [Monotom](https://github.com/monotom/html-youtube-mixer)
+
+## How to Contribute ##
+
+Fork the Repo, and make changes there.
+
+Pull request into the UpstandingBiome/Video-ke master.
+
+## References ##
+
+> https://jquery.com/
+
+> http://getbootstrap.com/
+
+> https://expressjs.com/
+
+> https://nodejs.org/
+
+> https://www.npmjs.com/package/assert
