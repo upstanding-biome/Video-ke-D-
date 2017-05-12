@@ -1,4 +1,4 @@
-# Video-ke
+# Video-ke Desktop
 
 ## Overview ##
 
@@ -9,6 +9,8 @@
 > Video-oke was inspiried by picking up the codebase for TRNTBL3000, an app that allowed crossfading across two playlists. Video-oke incorporates this need but adds video functionality and the ability to search the Youtube API to add the songs you want to sing or listen to and use a crossfader in between songs.
 
 ## Dependencies ##
+> Electron
+
 > Youtube API v3
 
 > Assert
