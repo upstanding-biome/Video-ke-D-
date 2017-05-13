@@ -138,11 +138,11 @@ var AppVolumeSlider = function(id){
   });
 };
 
-jQuery(function($){
-  //triggers App.bootstrap and ensures jQuery is loaded
-  $('body').append(
-      $('<script/>').attr('src', "http://www.youtube.com/player_api"));
-});
+// jQuery(function($){
+//   //triggers App.bootstrap and ensures jQuery is loaded
+//   //$('body').append(
+//       //$('<script/>').attr('src', "http://www.youtube.com/player_api"));
+// });
 
 //triggered after http://www.youtube.com/player_api loaded
 function onYouTubePlayerAPIReady(){
