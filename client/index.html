@@ -107,75 +107,80 @@
 
         function init() {
 
-          new YT.Player('player1', {
-            events: {
-              'onStateChange': function(event) {
-                onPlayerStateChange(event, 'player1');
-              }
-            }
-          });
+          $(document).ready(function() {
 
-          new YT.Player('player2', {
-            events: {
-              'onStateChange': function(event) {
-                onPlayerStateChange(event, 'player2');
-              }
-            }
-          });
+              new YT.Player('player1', {
+                events: {
+                  'onStateChange': function(event) {
+                    onPlayerStateChange(event, 'player1');
+                  }
+                }
+              });
 
-          var key;
-          $.ajax({
-            type: 'GET',
-            url: '../api/config.json',
-            dataType: "json",
-            success: function(data) {
-              key = data.API_KEY;
-              gapi.client.setApiKey(key);
-              gapi.client.load('youtube', 'v3', function() {
-                console.log('client loaded');
+              new YT.Player('player2', {
+                events: {
+                  'onStateChange': function(event) {
+                    onPlayerStateChange(event, 'player2');
+                  }
+                }
+              });
 
-                // $.ajax({
-                //   type: 'GET',
-                //   url: '../webview/webview_one.html',
-                //   dataType: "text",
-                //   success: function(data) {
-                //     console.log('webview one loaded ', data);
-                //     // $('.player1div').appendChild(data);
-                //   }
-                // })
+              var key;
+              $.ajax({
+                type: 'GET',
+                url: '../api/config.json',
+                dataType: "json",
+                success: function(data) {
+                  key = data.API_KEY;
+                  gapi.client.setApiKey(key);
+                  gapi.client.load('youtube', 'v3', function() {
+                    console.log('client loaded');
+                    // $.ajax({
+                    //   type: 'GET',
+                    //   url: '../webview/webview_one.html',
+                    //   dataType: "text",
+                    //   success: function(data) {
+                    //     console.log('webview one loaded ', data);
+                    //     // $('.player1div').appendChild(data);
+                    //   }
+                    // })
+                  });
+                }
               });
             }
-          });
-        }
 
-        var search = function(input) {
-          $('#results').html('')
-          var input = $('#searchTxt').val();
-          $('#results').html('');
-          gapi.client.request({
-            path: '/youtube/v3/search',
-            params: {
-              part: 'snippet',
-              maxResults: 15,
-              q: input,
-              videoEmbeddable: true,
-              videoSyndicated: true,
-              type: 'video'
-            }
-          }).then(function(data) {
-            var items = data.result.items;
-            for (var i = 0; i < items.length; i++) {
-              var url = data.result.items[i].snippet.thumbnails.default.url;
-              var id = data.result.items[i].id.videoId;
-              $('#results').append('<br/><div class="row padding">');
-              $('#results').append('<div class="col-xs-3"><a href="#"><img src="' + url + '"/></a></div>');
-              $('#results').append('<div class="col-xs-7"><p class="title">' + items[i].snippet.title + '</p><p class="descrip">' + items[i].snippet.description + '</p><button class="loadVid aButton btn btn-danger" onclick="makePlayerA(\'' +
-                id + '\')">Deck A</button><button class="loadVid bButton btn btn-danger" onclick="makePlayerB(\'' + id + '\')">Deck B</button></div></div>');
-              $('#results').append('<br/>');
+            var search = function(input) {
+              $('#results').html('')
+              var input = $('#searchTxt').val();
+              $('#results').html('');
+              gapi.client.request({
+                path: '/youtube/v3/search',
+                params: {
+                  part: 'snippet',
+                  maxResults: 15,
+                  q: input,
+                  videoEmbeddable: true,
+                  videoSyndicated: true,
+                  type: 'video'
+                }
+              }).then(function(data) {
+                var items = data.result.items;
+                for (var i = 0; i < items.length; i++) {
+                  var url = data.result.items[i].snippet.thumbnails.default.url;
+                  var id = data.result.items[i].id.videoId;
+                  $('#results').append('<br/><div class="row padding">');
+                  $('#results').append('<div class="col-xs-3"><a href="#"><img src="' + url + '"/></a></div>');
+                  $('#results').append('<div class="col-xs-7"><p class="title">' + items[i].snippet.title + '</p><p class="descrip">' + items[i].snippet.description +
+                    '</p><button class="loadVid aButton btn btn-danger" onclick="makePlayerA(\'' +
+                    id + '\')">Deck A</button><button class="loadVid bButton btn btn-danger" onclick="makePlayerB(\'' + id + '\')">Deck B</button></div></div>');
+                  $('#results').append('<br/>');
+                };
+              });
+              $('#searchTxt').val('');
             };
+
           });
-          $('#searchTxt').val('');
-        };
+
         var makePlayerA = function(idA) {
           $('#player1').attr('src', "https://www.youtube.com/embed/" + idA + "?enablejsapi=1");
         };
@@ -186,9 +191,9 @@
     </div>
   </div>
   <!-- Access the Google JavaScript Library -->
+  <!--Slider Specific JS-->
   <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=init"></script>
   <script type="text/javascript" src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
-  <!--Slider Specific JS-->
   <script type="text/javascript" src="scripts/jquery.min.js"></script>
   <script type="text/javascript" src="scripts/jquery-ui.custom.min.js"></script>
   <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
